@@ -19,7 +19,7 @@ import sqlite3
 
 conn = sqlite3.connect('reddit.db')
 c = conn.cursor()
-c.execute(''' CREATE TABLE redditData(title TEXT, upvotes INT, url TEXT, numberOfComments)''')
+c.execute(''' CREATE TABLE IF NOT EXISTS  redditData(title TEXT, upvotes INT, url TEXT, numberOfComments)''')
 
 def databaseConnection(title, upvotes, url, numComments):
     '''
