@@ -21,4 +21,4 @@ For my following project I'm thinking of choosing the most controversial topic o
 
 # Install and Run instructions
 
-To run this code the user has to download all the necessary files such as reddit.py, requirements.txt and redditTop.ipynb for the jupyter notebook version. Before running the main reddit.py text the user has to run the command -r requirements.txt to make sure they install all the packages that are required to run the code.
+To run this code the user has to download all the necessary files such as reddit.py, requirements.txt and redditTop.ipynb for the jupyter notebook version. Before running the main reddit.py text the user has to run the command ``` pip install -r requirements.txt ``` to make sure they install all the packages that are required to run the code.
