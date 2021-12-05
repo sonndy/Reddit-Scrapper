@@ -19,5 +19,6 @@ Within the same function I used to get access to my reddit account I used the em
 I used the schedule and time module of python in order to run the getting_popular_reddits function every day at 10:30 am. The code runs and after a 3 second delay, I get three separate text, and then I can just click on them without wasting time scrolling on reddit.
 For my following project I'm thinking of choosing the most controversial topic on the Rutgers subreddit and find out what people think about it. I was thinking of using Textblob and Pandas, I believe that being able to analyze all that data on the Rutgers subreddit will give me an idea on what position the students have taken on a particular topic.
 
-Install and Run instructions
+# Install and Run instructions
+
 To run this code the user has to download all the necessary files such as reddit.py, requirements.txt and redditTop.ipynb for the jupyter notebook version. Before running the main reddit.py text the user has to run the command -r requirements.txt to make sure they install all the packages that are required to run the code.
