@@ -1,6 +1,6 @@
 # Python Package Project
 
-I am a community college graduate who transferred to Rutgers last semester, during that semester online one of the main social media sites I used to gather information on what was happening at Rutgers was reddit. I remember checking it every day to see what was going on and what the students were thinking. Now, since I'm on campus I do not want to spend my time browsing reddit to see what’s going on. The purpose of my project is to send me a text every day at 10:30 am of the most popular topics on the Rutgers subreddit, since I have the reddit app on my phone that link should take me right to the post on reddit. The technology I used was PRAW, a python module that give me access to my reddit account, the python schedule and time library which allow me to schedule the time for my script to run, the smtplib package which enable me to send email to any internet machine with SMTP or ESMTP listener daemon, the Email Message package which allow me to create an email message, and the pandas package which allow me to save and order my data on Jupyter Notebook.
+The purpose of my project is to send me a text every day at 10:30 am of the most popular topics on the Rutgers subreddit, since I have the reddit app on my phone that link should take me right to the post on reddit. The technology I used was PRAW, a python module that give me access to my reddit account, the python schedule and time library which allow me to schedule the time for my script to run, the smtplib package which enable me to send email to any internet machine with SMTP or ESMTP listener daemon, and the Email Message package which allow me to create an email message. I realized that I needed somewhere to save the data I m getting from reddit, so for my final project I decided to use the sqlite3 package to create a better version of my midterm project. With the sqlite3 package I was able to create a connection to a database and update the database file every time I received the top 3 post message.
 
 ![](./images/SendEmail.PNG)
 
@@ -19,6 +19,12 @@ Within the same function I used to get access to my reddit account I used the em
 I used the schedule and time module of python in order to run the getting_popular_reddits function every day at 10:30 am. The code runs and after a 3 second delay, I get three separate text, and then I can just click on them without wasting time scrolling on reddit.
 For my following project I'm thinking of choosing the most controversial topic on the Rutgers subreddit and find out what people think about it. I was thinking of using Textblob and Pandas, I believe that being able to analyze all that data on the Rutgers subreddit will give me an idea on what position the students have taken on a particular topic.
 
+# Saving my data to a database
+
+![](./images/database.PNG)
+
+I needed somewhere to save all the data I was getting from reddit, so I decided to create a database file to save them. As seen in the picture above, by using the sqlite3 package I was able to create a function that takes in the title, upvotes, URL, and number of comments of the top post as arguments and saves them to the database file called “reddit.db”. I called the table “redditData” and it has four columns to take in the information of the top post. By creating a variable for the cursor object I was able to interact with the database using sql commands to insert, commit, and execute my data to the table.
+
 # Install and Run instructions
 
-To run this code the user has to download all the necessary files such as reddit.py, requirements.txt and redditTop.ipynb for the jupyter notebook version. Before running the main reddit.py text the user has to run the command ``` pip install -r requirements.txt ``` to make sure they install all the packages that are required to run the code.
+The user has to have the latest version of python 3 on their computer, then they have to download all the necessary files such as readme.md, requirements.txt., and reddit.py. Before running the main reddit.py file the user has to run the command ``` pip install -r requirements.txt ``` to make sure they install all the packages that are required to run the code.
