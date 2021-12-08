@@ -15,18 +15,30 @@ from email.message import EmailMessage
 # Importing the database i will use to save my reddit data
 import sqlite3
 
+# Creating database and naming it
 conn = sqlite3.connect('reddit.db')
+
+# Creating a Cursor object that let me interact with the database using sql command 
 c = conn.cursor()
+
+# Creating a table name redditData with four columns: Title, upvotes, url and numberOfComments
 c.execute(''' CREATE TABLE IF NOT EXISTS  redditData(title TEXT, upvotes INT, url TEXT, numberOfComments)''')
 
 def databaseConnection(title, upvotes, url, numComments):
     '''
     creating connection to the database
     '''
+
+    # Inserting values into the table using the arguments that is pass to the function
     c.execute('''INSERT INTO  redditData VALUES(?, ?,?,?)''', (title, upvotes, url, numComments))
+
+    # Commiting the data to the database
     conn.commit()
 
+    # Selecting the whole table to display
     c.execute(''' SELECT * FROM redditData''')
+
+    # Fetching the data to display in the console
     result = c.fetchall()
     print(result)
 
