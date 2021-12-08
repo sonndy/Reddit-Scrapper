@@ -11,8 +11,6 @@ import smtplib
 from email.message import EmailMessage
 
 # Imprting pandas to gather the subreddit data
-import pandas as pd
-pd.set_option('max_colwidth', None)
 
 # Importing the database i will use to save my reddit data
 import sqlite3
@@ -93,15 +91,13 @@ def getting_popular_reddits():
 
     # creating empty list to store my data
     popular_reddit = []
-    df = []
+
     # iterate over the rutgers subreddit
     for thread in subRed:
         # if the post is not permanently display at the top of the subreddit
         if not thread.stickied:
             # and if it has more than 10 upvote append it to the popular_reddit array and the pandas dataframe
             if(thread.score > 10):
-                df.append([thread.title, thread.score, thread.url,
-                          thread.num_comments, thread.selftext])
                 popular_reddit.append(thread.url)
                 databaseConnection(thread.title, thread.score, thread.url, thread.num_comments)
 
@@ -113,11 +109,9 @@ def getting_popular_reddits():
     email_alert("6096656286@tmomail.net", "today's popular reddit discussion", f"here is the third url: {popular_reddit[2]}")
 
 
-# everyday at 3:55 pm send me the top three most popular post on the rutgers subreddit
+# everyday at 10:30 am send me the top three most popular post on the rutgers subreddit
 
-# getting_popular_reddits()
-
-schedule.every().day.at("11:45").do(getting_popular_reddits)
+schedule.every().day.at("10:00").do(getting_popular_reddits)
 
 while 1:
     schedule.run_pending()
